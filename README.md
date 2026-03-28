@@ -6,7 +6,7 @@ Classic Battleship against the computer on a 10×10 grid. This repo contains a *
 
 - **Fleet**: Destroyer (2), Cruiser (3), Submarine (3), Battleship (4), Aircraft carrier (5).
 - **AI**: **Easy** fires at random squares; **Normal** hunts adjacent cells after a hit.
-- **Console** (`Battleship`): main menu, new game, load/save, gameplay loop.
+- **Console** (`BattleshipConsole`): main menu, new game, load/save, gameplay loop.
 - **GUI** (`BattleshipGUI`): menu, instructions dialog, ship placement and play screens (Java Swing).
 
 ## Requirements
@@ -37,19 +37,21 @@ java -cp out BattleshipGUI
 **Console**
 
 ```bash
-java -cp out Battleship
+java -cp out BattleshipConsole
 ```
 
 ### IntelliJ
 
-Open the project folder (or `Battleship.iml` / module), then run `BattleshipGUI` or `Battleship` using the gutter ▶ on the class’s `main` method.
+Open the project folder (or `Battleship.iml` / module), then run `BattleshipGUI` or `BattleshipConsole` using the gutter ▶ on the class’s `main` method.
 
 ## Project layout
 
 | Path | Role |
 |------|------|
-| `src/Battleship.java` | Console game logic, AI, persistence |
-| `src/Main.java` | Placeholder entry (`Main` is not the primary launcher) |
+| `src/BattleshipConsole.java` | Console `main`, menus, game loop |
+| `src/GameRules.java`, `GameConstants.java` | Board rules, ship logic, constants |
+| `src/ComputerPlayer.java`, `ConsoleDisplay.java`, `GamePersistence.java` | AI, terminal UI, save/load |
+| `src/Main.java` | Placeholder entry (not the launcher) |
 | `gui/BattleshipGUI.java` | Swing shell: `CardLayout` (menu, game, placement) |
 | `gui/MenuPanel.java`, `GamePanel.java`, `ShipPlacementPanel.java` | GUI panels |
 
